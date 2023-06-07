@@ -4,24 +4,36 @@
     {
         static void Main(string[] args)
         {
-            Pen p = new Pen();
-            Console.WriteLine($"цвет: {p.color}, стоимость: {p.cost}");
-            Pen p2 = new Pen("Зелёный", 150);
-            Console.WriteLine($"цвет: {p2.color}, стоимость: {p2.cost}");
+            Rectangle r1 = new Rectangle();
+            Console.WriteLine($"a: {r1.a}, b: {r1.b}");
+            Rectangle r2 = new Rectangle(5);
+            Console.WriteLine($"a: {r2.a}, b: {r2.b}");
+            Rectangle r3 = new Rectangle(10, 20);
+            Console.WriteLine($"a: {r3.a}, b: {r3.b}");
         }
-        class Pen
+        class Rectangle
         {
-            public string color;
-            public int cost;
-            public Pen()
+            public int a;
+            public int b;
+            public Rectangle()
             {
-                color = "Черный";
-                cost = 100;
+                a = 6;
+                b = 4;
             }
-            public Pen(string color, int cost)
+            public Rectangle(int one)
             {
-                this.color = color;
-                this.cost = cost;
+                a = one;
+                b = one;
+            }
+            public Rectangle(int a, int b)
+            {
+                this.a = a;
+                this.b = b;
+            }
+
+            public int Square()
+            {
+                return a * b;
             }
         }
     }
