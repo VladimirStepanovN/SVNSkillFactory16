@@ -4,35 +4,25 @@
     {
         static void Main(string[] args)
         {
-            var department = GetCurrentDepartment();
+            Bus bus = new Bus();
+            bus.Load = 100; //если закомментировать, выведет что автобус пуст.
+            bus.PrintStatus();
         }
-        static Department GetCurrentDepartment()
+        class Bus
         {
-            Department department = new Department();
-            department.Company = new Company();
-            department.City = new City();
-            if ("Банк".Equals(department?.Company?.Type)
-                && "Санкт-Петербург".Equals(department?.City?.Name))
+            public int? Load;
+
+            public void PrintStatus()
             {
-                Console.WriteLine("У банка {0} есть отделение в Санкт-Петербурге", department?.Company?.Name ?? "Неизвестная компания");
+                if (Load.HasValue)
+                {
+                    Console.WriteLine("Количество пассажиров: {0}.", Load.Value);
+                }
+                else
+                {
+                    Console.WriteLine("Автобус пуст.");
+                }
             }
-            return department;
-        }
-        class Company
-        {
-            public string Type = "Банк";
-            public string Name;
-        }
-
-        class Department
-        {
-            public Company Company;
-            public City City;
-        }
-
-        class City
-        {
-            public string Name = "Санкт-Петербург";
         }
     }
 }
