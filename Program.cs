@@ -4,24 +4,38 @@
     {
         static void Main(string[] args)
         {
-            Bus bus = new Bus();
-            bus.Load = 100; //если закомментировать, выведет что автобус пуст.
-            bus.PrintStatus();
+            
         }
-        class Bus
+        class Triangle
         {
-            public int? Load;
-
-            public void PrintStatus()
+            public double? left;
+            public double? right;
+            public double? bottom;
+            public double Square()
             {
-                if (Load.HasValue)
-                {
-                    Console.WriteLine("Количество пассажиров: {0}.", Load.Value);
-                }
-                else
-                {
-                    Console.WriteLine("Автобус пуст.");
-                }
+            }
+            public double Perimeter()
+            {
+            }
+        }
+        class Circle
+        {
+            public double? radius;
+            public double Square()
+            {
+            }
+            public double Length()
+            {
+            }
+        }
+        class Square
+        {
+            public double? side;
+            public double Square()
+            {
+            }
+            public double Perimeter()
+            {
             }
         }
     }
