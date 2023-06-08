@@ -4,37 +4,35 @@
     {
         static void Main(string[] args)
         {
-            Rectangle r1 = new Rectangle();
-            Console.WriteLine($"a: {r1.a}, b: {r1.b}");
-            Rectangle r2 = new Rectangle(5);
-            Console.WriteLine($"a: {r2.a}, b: {r2.b}");
-            Rectangle r3 = new Rectangle(10, 20);
-            Console.WriteLine($"a: {r3.a}, b: {r3.b}");
+            var department = GetCurrentDepartment();
         }
-        class Rectangle
+        static Department GetCurrentDepartment()
         {
-            public int a;
-            public int b;
-            public Rectangle()
+            Department department = new Department();
+            department.Company = new Company();
+            department.City = new City();
+            if ("Банк".Equals(department?.Company?.Type)
+                && "Санкт-Петербург".Equals(department?.City?.Name))
             {
-                a = 6;
-                b = 4;
+                Console.WriteLine("У банка {0} есть отделение в Санкт-Петербурге", department?.Company?.Name ?? "Неизвестная компания");
             }
-            public Rectangle(int one)
-            {
-                a = one;
-                b = one;
-            }
-            public Rectangle(int a, int b)
-            {
-                this.a = a;
-                this.b = b;
-            }
+            return department;
+        }
+        class Company
+        {
+            public string Type = "Банк";
+            public string Name;
+        }
 
-            public int Square()
-            {
-                return a * b;
-            }
+        class Department
+        {
+            public Company Company;
+            public City City;
+        }
+
+        class City
+        {
+            public string Name = "Санкт-Петербург";
         }
     }
 }
